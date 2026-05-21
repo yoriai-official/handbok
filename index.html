@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コミュニティ・ミュージックのレシピ　どんなわたしも音になる！</title>
+  <meta name="description" content="みんなとつむぐ音楽会（つむおと）によるコミュニティ・ミュージックのハンドブック。yoriai.（よりあい。）発行。">
+  <style>
+    :root {
+      --bg: #faf8f4;
+      --text: #2a2520;
+      --muted: #6b6258;
+      --accent: #c85a2a;
+      --accent-light: #f5ece6;
+      --accent2: #4a7c6f;
+      --accent2-light: #e8f2f0;
+      --border: #ddd8d0;
+      --card-bg: #ffffff;
+      --font-body: 'Noto Serif JP', 'Georgia', serif;
+      --font-heading: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+
+    /* アクセシビリティ：フォーカス表示を明確に */
+    *:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* スキップリンク（スクリーンリーダー向け） */
+    .skip-link {
+      position: absolute;
+      top: -999px;
+      left: 0;
+      background: var(--accent);
+      color: white;
+      padding: 12px 20px;
+      font-size: 1rem;
+      text-decoration: none;
+      z-index: 9999;
+      border-radius: 0 0 8px 0;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* ===== 目次ナビゲーション ===== */
+    nav#toc {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+
+    nav#toc h2 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    nav#toc ol {
+      padding-left: 1.4em;
+    }
+
+    nav#toc li {
+      margin-bottom: 8px;
+    }
+
+    nav#toc a {
+      color: var(--accent2);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+    }
+
+    nav#toc a:hover,
+    nav#toc a:focus {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+
+    /* ===== ヘッダー ===== */
+    header {
+      text-align: center;
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+    }
+
+    .header-label {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      background: var(--accent-light);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    header h1 span {
+      display: block;
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: var(--accent);
+      font-weight: 400;
+      margin-top: 6px;
+    }
+
+    .header-author {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    /* ===== セクション共通 ===== */
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent2);
+      margin: 32px 0 12px;
+    }
+
+    p {
+      margin-bottom: 1.2em;
+    }
+
+    /* 引用ブロック */
+    blockquote {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: normal;
+    }
+
+    blockquote p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    /* 注釈 */
+    .footnote {
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      padding-top: 12px;
+    }
+
+    .footnote p {
+      margin-bottom: 0.4em;
+    }
+
+    .author-note {
+      text-align: right;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-family: var(--font-heading);
+      margin-top: 16px;
+    }
+
+    /* ===== レシピカード ===== */
+    .recipe-intro {
+      background: var(--accent2-light);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+    }
+
+    /* 材料・道具カード */
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 24px 0;
+    }
+
+    .ingredient-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+
+    .ingredient-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .ingredient-card p {
+      font-size: 0.92rem;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* 楽器リスト */
+    .instrument-list {
+      background: var(--accent-light);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 12px 0;
+    }
+
+    .instrument-list p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* レシピステップ */
+    .recipe-steps {
+      counter-reset: step;
+    }
+
+    .recipe-step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      counter-increment: step;
+      min-width: 44px;
+      height: 44px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      aria-hidden: true;
+    }
+
+    .step-content h3 {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    /* アレンジレシピ */
+    .arrange-steps {
+      list-style: none;
+      padding: 0;
+    }
+
+    .arrange-steps li {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px dashed var(--border);
+      align-items: flex-start;
+    }
+
+    .arrange-steps li:last-child {
+      border-bottom: none;
+    }
+
+    .arrange-num {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--accent2);
+      font-size: 1rem;
+      min-width: 32px;
+    }
+
+    .arrange-text strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .arrange-text p {
+      font-size: 0.93rem;
+      margin: 0;
+    }
+
+    /* ===== コラム（参加者の声） ===== */
+    .voice-grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .voice-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+    }
+
+    .voice-card .voice-quote {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent2);
+      font-family: var(--font-heading);
+      margin-bottom: 10px;
+    }
+
+    .voice-card p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .voice-card .voice-name {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 12px;
+      text-align: right;
+    }
+
+    /* ===== ヒント集 ===== */
+    .hint-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .hint-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .hint-icon {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: white;
+      background: var(--accent2);
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .hint-content strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .hint-content p {
+      font-size: 0.93rem;
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    /* ===== フォトボイス ===== */
+    .photovoice-steps {
+      counter-reset: pstep;
+      margin: 20px 0;
+    }
+
+    .photovoice-step {
+      margin-bottom: 16px;
+      padding-left: 20px;
+      border-left: 3px solid var(--accent2);
+    }
+
+    .photovoice-items {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .photovoice-items li {
+      background: var(--accent2-light);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+    }
+
+    .photovoice-items li strong {
+      font-family: var(--font-heading);
+      display: block;
+    }
+
+    /* 作品例 */
+    .example-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .example-card .image-desc {
+      background: var(--accent-light);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    .example-card .image-desc strong {
+      display: block;
+      font-family: var(--font-heading);
+      margin-bottom: 4px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ===== サポーターリスト ===== */
+    .supporter-list {
+      columns: 2;
+      gap: 12px;
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .supporter-list li {
+      font-size: 0.92rem;
+      padding: 4px 0;
+      font-family: var(--font-heading);
+    }
+
+    /* ===== メンバー ===== */
+    .member-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .member-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+    }
+
+    .member-card .member-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .member-card p {
+      font-size: 0.9rem;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* ===== フッター ===== */
+    footer {
+      margin-top: 60px;
+      padding: 36px 0 20px;
+      border-top: 2px solid var(--border);
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    footer h2 {
+      font-size: 1rem;
+      border: none;
+      padding: 0;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    footer p {
+      margin-bottom: 4px;
+    }
+
+    footer a {
+      color: var(--accent2);
+    }
+
+    .colophon {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    /* ===== ページトップへ ===== */
+    .back-to-top {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 10px 22px;
+      background: var(--accent2);
+      color: white;
+      text-decoration: none;
+      border-radius: 24px;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus {
+      background: var(--accent);
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 600px) {
+      body {
+        font-size: 1rem;
+        padding: 0 16px 60px;
+      }
+
+      .ingredient-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .supporter-list {
+        columns: 1;
+      }
+
+      .hint-item {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* 印刷時 */
+    @media print {
+      .skip-link, .back-to-top { display: none; }
+      body { font-size: 10pt; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- スキップリンク（スクリーンリーダー・キーボードユーザー向け） -->
+  <a class="skip-link" href="#main-content">本文へスキップ</a>
+
+  <header id="top" role="banner">
+    <div class="header-label" aria-hidden="true">コミュニティ・ミュージック ハンドブック</div>
+    <h1>
+      コミュニティ・ミュージックのレシピ
+      <span>どんなわたしも音になる！</span>
+    </h1>
+    <p class="header-author">著者：任意団体 yoriai.（よりあい。）</p>
+  </header>
+
+  <!-- 目次 -->
+  <nav id="toc" aria-label="目次">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#hajimeni">はじめに</a></li>
+      <li><a href="#about">この本について・みんなとつむぐ音楽会とは？</a></li>
+      <li><a href="#recipe">コミュニティ・ミュージックのレシピ</a></li>
+      <li><a href="#column1">コラム１：つむおとってどんな場所？</a></li>
+      <li><a href="#hints">コミュニティ・ミュージックのヒント集</a></li>
+      <li><a href="#column2">コラム２：フォトボイスでの振り返り</a></li>
+      <li><a href="#supporters">つむおとを支えてくれた人たち・メンバー</a></li>
+      <li><a href="#owari">おわりに</a></li>
+    </ol>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- はじめに -->
+    <section id="hajimeni" aria-labelledby="hajimeni-heading">
+      <h2 id="hajimeni-heading">はじめに</h2>
+
+      <p>夕暮れ時、とあるコミュニティカフェでひらかれる、しんどさを抱える親子の居場所にギターを背負って向かったわたしは、自分に何ができるのかとソワソワしていました。あたたかな空間に背中を押されるようにギターの弾き語りを始めると、子どもたちはこっそりと耳を傾け、好きな曲をリクエストし始めました。じわりと始まったセッションは、やがて伸びやかな歌声がかさなる、爆発的な表現の塊になっていったのでした。</p>
+
+      <p>彼ら／彼女らの選曲や歌声、前のめりな姿勢すべてが「音楽」であり表現だと、わたしは深く納得しました。しかし、「どんな自分も素敵な音楽になり得る」ということは、子どもたちや周囲の大人にとって、決して当たり前のことではありませんでした。少なくない人が、これまで自分の表現を否定される経験を重ね、表現したい気持ちを抑えてきたのだと気づかされたのです。</p>
+
+      <p>社会には、「これは『音楽』になり得る立派な表現で、これはそうではない」という、目に見えないけれども強力な線引きがあるようです。コンサートでは、アーティストと観客はきれいに区別され、そこで「音楽」とされるのは、舞台上の音だけです。こうした文化のなかで、自分が表現者の一人であると感じることは難しくなっています。表現者になれない状況は、わたしたちからのびやかな生きる力や日々を開拓する勇気を奪い、言葉にならないしんどさや生きづらさをもたらしているのかもしれません。</p>
+
+      <p>コミュニティカフェでの経験をきっかけに、わたしは、誰もが音楽を生み出す表現者になれるような音楽会をひらくことにしました。それが「みんなとつむぐ音楽会（通称つむおと）」です。</p>
+
+      <p>つむおとを続けるうちに、参加者のあいだに「どんなふるまいも音楽」という価値観が根付いてきました。演奏中走り回っても、おもちゃで遊んでも、叫んでも、自然と面白い表現になっていく不思議。他者の表現を評価（ジャッジ）するのではなく、味わいあう土壌が確かに育っていきました。</p>
+
+      <p>同時に、C・スモールの「ミュージッキング」<sup><a href="#fn1" id="ref1">注1</a></sup>という概念にも出会いました。音楽を作品ではなく行為として捉え、あらゆる振る舞いを音楽に含める視点です。この考え方は、つむおとの「どんなわたしも音になる！」という雰囲気を支える土台となりました。</p>
+
+      <p>わたしは、このようなつむおとの営みはケアの一部ではないかと考えています。水俣病の当事者であり、人と毒について考え抜いて言葉をつむいできた緒方正人さんの言葉から、ケアの在り方のヒントを得たいと思います。</p>
+
+      <blockquote>
+        <p>「物であろうが人であろうが、存在が求めているのは、<br>結局、その存在が認められるということだと思う」<sup><a href="#fn2" id="ref2">注2</a></sup></p>
+      </blockquote>
+
+      <p>人は、自分の存在や自分にまとわりつくしんどさの存在を、自ら認めたり、他者に認められることで、生き延びられるのではないでしょうか。そのような「存在の認めあい」は、ケアそのものであるとわたしは考えています。反対に、「存在の認めあい」がないがしろにされることで、歪みやしんどさが生まれてしまうのかもしれません。</p>
+
+      <p>「存在の認めあい」は決して上からの評価ではなく、つむおとで醸成されていたような「味わいあう」営みに支えられるものです。わたしの音を味わい、あなたの音を味わい、それが音楽となって場を包み込む。つむおとで起こっていることは、まさに「存在の認めあい」であり、ケアだといえるでしょう。</p>
+
+      <p>このようなケアは、その効果を測ることは難しく、何らかの尺度で示すこともできません。「この場で蒔かれたケアの種がいつか芽吹くといいな」と願いながら、つむおとを続けています。そんな祈りのような実践が、より多くの場所へ届くことを願っています。</p>
+
+      <p>同じような思いを持つ方々とともに、ケアのあふれる社会をつくるために、本書では、つむおとの実践から得られたコミュニティ・ミュージックや表現活動のヒントをお裾分けします。本書のヒントをアレンジして、みなさんなりの表現として、新たな実践が広がっていくことを願っています。</p>
+
+      <div class="footnote" role="note" aria-label="注釈">
+        <p id="fn1"><a href="#ref1">注1</a>：スモール,クリストファー（2011[1998]）『ミュージッキング―音楽は"行為"である』水声社,30-31.</p>
+        <p id="fn2"><a href="#ref2">注2</a>：緒方正人著・辻信一 著編著（2020）『常世の舟を漕ぎて 熟成版』株式会社素敬,309．</p>
+      </div>
+
+      <p class="author-note">（書いた人：南摩周）</p>
+    </section>
+
+    <!-- この本について -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">この本について</h2>
+
+      <p>わたしたちは、多くのコミュニティにおいて、安心して自由に表現を楽しむ場が増えていくことを願っています。この本は、場づくりのヒントとなるように、これまでひらいてきた「みんなとつむぐ音楽会（つむおと）」から見えてきたコミュニティ・ミュージックの大事な要素や作り方をまとめています。</p>
+
+      <h3>みんなとつむぐ音楽会とは？</h3>
+
+      <p>通称「つむおと」。お寺やコミュニティカフェ、公園などさまざまな場所に音楽を届けています。</p>
+
+      <p>音楽会は2部構成です。</p>
+      <ol>
+        <li>コミュニティ・アーティストによる「生演奏ライブ」</li>
+        <li>セッションをしたり、おしゃべりをしたり自由に過ごす「交流会」</li>
+      </ol>
+
+      <p>「わたしたちの＜好き＞と表現をうけとめあう」を合言葉に、お届けするコミュニティの色を取り入れながら自由な音楽会をつくっています。</p>
+    </section>
+
+    <!-- レシピ -->
+    <section id="recipe" aria-labelledby="recipe-heading">
+      <h2 id="recipe-heading">コミュニティ・ミュージックのレシピ</h2>
+
+      <div class="recipe-intro" role="note">
+        つむおとは、いくつかの「材料・道具（必要な要素）」と「レシピ（作り方）」からできています。これらをアレンジして、みなさんにとっての「コミュニティ・ミュージック」をつくってみてください。
+      </div>
+
+      <h3>材料・道具（必要な要素）</h3>
+
+      <div class="ingredient-grid">
+        <div class="ingredient-card">
+          <h3>参加者が安心できるコミュニティ</h3>
+          <p>参加者が音楽を楽しむためには、安心できるコミュニティであることが大切です。音楽活動を機に、初めてコミュニティと関わる場合は、事前にていねいに関係性をつくるようにしましょう。コミュニティの雰囲気や大切にしていることを尊重し、コミュニティの人たちと連携しながら音楽会を作っていきます。</p>
+        </div>
+
+        <div class="ingredient-card">
+          <h3>楽器・機材</h3>
+          <p>楽器や機材などの道具は、音楽活動の内容によって必要でない場合もあります。まずは身近なものや借りられるものを活用しましょう。（ゴミ袋だって立派な楽器になります！）</p>
+          <div class="instrument-list" role="note" aria-label="楽器・機材の一例">
+            <p><strong>楽器の例：</strong>ギター、ベース、ピアノ、ヴァイオリン、カホン、その他楽器になるもの（オタマトーン、シェイカーなど）</p>
+            <p><strong>機材の例：</strong>スピーカー、ミキサー、アンプ、マイク、マイクスタンド、シールド、譜面台</p>
+          </div>
+        </div>
+
+        <div class="ingredient-card">
+          <h3>音楽の種</h3>
+          <p>「この歌が好き」「やってみたい」などの気持ち。またコミュニティの人たちの音楽経験や持っている楽器など、音楽活動がはじまるきっかけになりそうなもの。コミュニティ・ミュージックの役割は、コミュニティの中の「音楽の＜種＞」を見つけ、他者と一緒に音楽を楽しむ場と時間をつくることにあります。</p>
+        </div>
+
+        <div class="ingredient-card">
+          <h3>コミュニティ・アーティスト</h3>
+          <p>音楽活動のファシリテーターやリーダーのこと。必ずしもフォーマルな音楽教育を受けたアーティストである必要はありません。プロ・アマに関わらず、コミュニティ・アーティストの表現を楽しむ姿が、参加者の「表現してみたい」気持ちを後押しし、他者の表現を尊重する雰囲気を生み出します。</p>
+          <p>今、コミュニティで新たに音楽活動を始めようとしている読者のみなさんもまた「コミュニティ・アーティスト」のひとり！</p>
+        </div>
+
+        <div class="ingredient-card">
+          <h3>「ミュージッキング」という価値観</h3>
+          <p>音楽を「作品」ではなく、「音楽すること」と捉える考え方を「ミュージッキング（musicking）」と呼びます<sup><a href="#fn3" id="ref3">注3</a></sup>。演奏だけでなく、演奏を聴くこと、会場を掃除すること、チケットもぎりも含めてミュージッキングです。「どんなわたし／あなたも音楽の一部である」という場をつくり出すことにつながります。</p>
+        </div>
+      </div>
+
+      <div class="footnote" role="note" aria-label="注釈">
+        <p id="fn3"><a href="#ref3">注3</a>：スモール,クリストファー（2011[1998]）『ミュージッキング―音楽は"行為"である』水声社,30-31.</p>
+      </div>
+
+      <h3>基本のレシピ（作り方）</h3>
+
+      <div class="recipe-steps" role="list">
+        <div class="recipe-step" role="listitem">
+          <div class="step-number" aria-label="ステップ1">1</div>
+          <div class="step-content">
+            <h3>音楽の種を見つける</h3>
+            <p>コミュニティの人たちと音楽の話をしたり、気楽なセッションをしてみるなかで、「どんな音楽が好き？やってみたい？」などの「音楽の＜種＞」を見つけることができます。＜種＞はどんな小さなものでも構いません。「最近はこんな曲を聴いている」「風の音が好き」というささやかな「好き」も、「実は口笛が得意」という小さな「できる」も＜種＞になります。</p>
+          </div>
+        </div>
+
+        <div class="recipe-step" role="listitem">
+          <div class="step-number" aria-label="ステップ2">2</div>
+          <div class="step-content">
+            <h3>小さな「音楽」から始める</h3>
+            <p>「音楽の＜種＞」から音楽活動のアイディアを練ります。いきなり大きな音楽会などを企画するよりも、音楽を通して関わりあう時間を持つことが大切です。たとえば、YouTubeなどを使って好きな音楽を検索して紹介しあう「音楽版ビブリオバトル」のようなものもいいでしょう。</p>
+          </div>
+        </div>
+
+        <div class="recipe-step" role="listitem">
+          <div class="step-number" aria-label="ステップ3">3</div>
+          <div class="step-content">
+            <h3>場を外にひらいてみる</h3>
+            <p>小さな場をアレンジして、少し大きめの企画をすれば、いつもは出会わないアーティストや観客、新しい参加者と音楽を通して関わる機会を作ることもできます。場を外にひらくときは、「どのくらいの規模までオープンにするのか」をこれまでの参加者やスタッフと一緒に検討することで、コミュニティの安心を守りながら活動を広げていきましょう。</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>アレンジレシピ：みんなとつむぐ音楽会</h3>
+
+      <p>つむおとのように、音楽会として外にひらいた場をつくるときのレシピをご紹介します。</p>
+
+      <ol class="arrange-steps" aria-label="音楽会を開くための手順">
+        <li>
+          <span class="arrange-num" aria-hidden="true">①</span>
+          <div class="arrange-text">
+            <strong>コンセプトを決めよう</strong>
+            <p>「音楽の＜種＞」や、自分たちが持っている資源（できること）を見直してからコンセプトを決めると、自分たちらしい企画ができます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="arrange-num" aria-hidden="true">②</span>
+          <div class="arrange-text">
+            <strong>「何を・誰と・どこで」を決めよう</strong>
+            <p>どんな内容の音楽会を（＝何を）、どんなコミュニティと一緒に（＝誰と）、どんな場所で（＝どこで）ひらくのかを決めます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="arrange-num" aria-hidden="true">③</span>
+          <div class="arrange-text">
+            <strong>「材料・道具」を用意しよう</strong>
+            <p>企画内容が固まってきたら、必要な材料を用意しはじめます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="arrange-num" aria-hidden="true">④</span>
+          <div class="arrange-text">
+            <strong>タイムスケジュールを組もう</strong>
+            <p>会場となるコミュニティやコミュニティ・アーティストとやり取りしながら、当日のタイムスケジュールを組みます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="arrange-num" aria-hidden="true">⑤</span>
+          <div class="arrange-text">
+            <strong>広報をしよう</strong>
+            <p>会場となるコミュニティやコミュニティ・アーティストにも協力していただきながら、音楽会を届けたい人に情報を伝えます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="arrange-num" aria-hidden="true">⑥</span>
+          <div class="arrange-text">
+            <strong>顔合わせ</strong>
+            <p>会場となるコミュニティやコミュニティ・アーティストと顔合わせをします。当日の流れや、大切にしたい価値観なども共有しておくとよいでしょう。</p>
+          </div>
+        </li>
+        <li>
+          <span class="arrange-num" aria-hidden="true">⑦</span>
+          <div class="arrange-text">
+            <strong>機材・音響の調整</strong>
+            <p>機材の組み立てや、音響の調整には意外と時間と労力がかかります。事前に操作方法などを確認したうえで、当日は主担当者を決めておき、余裕を持って準備できるようにしましょう。</p>
+          </div>
+        </li>
+        <li>
+          <span class="arrange-num" aria-hidden="true">⑧</span>
+          <div class="arrange-text">
+            <strong>ゆるやかで安心できる役割分担を</strong>
+            <p>スタッフは、ざっくりした役割は決めつつも、参加者の様子や場のできごとに合わせて役割分担を調整していきます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="arrange-num" aria-hidden="true">⑨</span>
+          <div class="arrange-text">
+            <strong>自分も楽しみつつ、見守ろう</strong>
+            <p>スタッフは、「一緒に音楽を楽しむ一員」という意識で場に馴染んでいくことが大切です。楽しみつつ、参加者を見守りましょう。</p>
+          </div>
+        </li>
+        <li>
+          <span class="arrange-num" aria-hidden="true">⑩</span>
+          <div class="arrange-text">
+            <strong>振り返りをしよう</strong>
+            <p>終了後に振り返りをすることで、コミュニティのニーズや、活動にとって大切な要素を掴むことができ、次の開催に役立てることができます。</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- コラム1 -->
+    <section id="column1" aria-labelledby="column1-heading">
+      <h2 id="column1-heading">コラム１：つむおとってどんな場所？</h2>
+
+      <p>これまでつむおとに参加してくださった方の声を集めました。</p>
+
+      <div class="voice-grid" role="list" aria-label="参加者の声">
+
+        <article class="voice-card" role="listitem">
+          <p class="voice-quote">「囲炉裏を囲う感じの音楽会」</p>
+          <p>囲炉裏を囲う感じの音楽会って少ないと思うんです。こういうなんかアットホームな場で、みんなで音楽を作って、それを聞いてって場が少ないと思うので。純粋に音楽を楽しみたいとか、ちょっと一旦人と繋がってみたいなとか、そういうなんか音楽の敷居の高さがちょっと厳しいなって人にぜひ来てもらいたいですね。</p>
+          <p class="voice-name">ソウタさん（参加者・高校生）</p>
+        </article>
+
+        <article class="voice-card" role="listitem">
+          <p class="voice-quote">「いろんな『好き』『私』を大事にする」</p>
+          <p>いろんな「好き」を大事にする。いろんな「私」…。うまくやろうと思わなくていい、自分のペースでいいということを学びました。</p>
+          <p class="voice-name">Mさん（参加者・小学生）</p>
+        </article>
+
+        <article class="voice-card" role="listitem">
+          <p class="voice-quote">「失敗はないんだよ」</p>
+          <p>前に「成功」と書いたけれど、つむおとのみなさんと会って、失敗はないんだよ、というのを教えてもらったなーと思ってます。</p>
+          <p class="voice-name">Uさん（参加者・小学生）</p>
+        </article>
+
+        <article class="voice-card" role="listitem">
+          <p class="voice-quote">「わがままな自己主張」ができる場</p>
+          <p>聞く人に喜んでもらうことを目標として曲目を選んで練習した演奏の機会はありそうなんです。でも、「私は今、こんな歌に歌われたような気持ち…」というような、わがままな自己主張を、させてもらえるところはなかなか無い。「つむおと」は貴重な「場」だと思います。</p>
+          <p class="voice-name">キムラさん（参加者・大人）</p>
+        </article>
+
+        <article class="voice-card" role="listitem">
+          <p class="voice-quote">「どんな自分でもオッケー」だからくつろげる</p>
+          <p>子どもとしては、ほんとにどんな自分でもオッケーなんですよね。だからお母さんたちもくつろいでると思うの。親もすごくのんびり。</p>
+          <p class="voice-name">ヒトミさん（参加者の保護者）</p>
+        </article>
+
+        <article class="voice-card" role="listitem">
+          <p class="voice-quote">「寄り合っている感じ」のつむおと</p>
+          <p>他の場所とは違う。演奏会を聴くのも違うし、プロに来てもらうのとも違う。聴かせてもらう場所ではなく、その後の混じり合いがいいのかな。寄り合っている感じがつむおと。</p>
+          <p class="voice-name">サチさん（コミュニティ・スタッフ）</p>
+        </article>
+
+        <article class="voice-card" role="listitem">
+          <p class="voice-quote">「あなたはいていいんだよ」と感じられる</p>
+          <p>つむおとって、音楽に触れることで、みんなでやる楽しさ、音楽ってこんな楽しさがあるんだ、自分ってこの場の一員でいていいんだという大切にするための場所。その場にいることが許されて良いし、あなたはいていいんだよという感覚を感じられる場所。</p>
+          <p class="voice-name">Nさん（コミュニティ・アーティスト）</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ヒント集 -->
+    <section id="hints" aria-labelledby="hints-heading">
+      <h2 id="hints-heading">コミュニティ・ミュージック　ヒント集</h2>
+
+      <p>つむおとから見えてきた、コミュニティ・ミュージックをつくるために大切なヒントたちを集めました。</p>
+
+      <ul class="hint-list" aria-label="コミュニティ・ミュージックのヒント">
+        <li class="hint-item">
+          <span class="hint-icon" aria-label="ヒント1">ヒント1</span>
+          <div class="hint-content">
+            <strong>みんな「と」つくる</strong>
+            <p>「みんなで同じになる」のではなく、違いを持つひとりひとりを尊重しながら「みんなと一緒に音楽をつくる」。活動のゴールや参加者の「あるべき姿」を決めずに、バラバラなまま一緒に寄り合うことを大切に。</p>
+          </div>
+        </li>
+
+        <li class="hint-item">
+          <span class="hint-icon" aria-label="ヒント2">ヒント2</span>
+          <div class="hint-content">
+            <strong>どんな過ごし方も、大切な「音楽」の一部</strong>
+            <p>きちんと聴く・演奏するだけが音楽ではありません。叫んだり、走り回ったり、寝転がったり、離れたところで休んだり、時には井戸端会議が始まったり！そんな振る舞いも制限するのではなく見守ることで、音楽とのおもしろい溶け合いが見えてくることがあります。</p>
+          </div>
+        </li>
+
+        <li class="hint-item">
+          <span class="hint-icon" aria-label="ヒント3">ヒント3</span>
+          <div class="hint-content">
+            <strong>表現を評価（ジャッジ）するのではなく 味わいあう</strong>
+            <p>表現を評価する（褒めたりけなしたりする）のではなく、「なんだかここの音が気持ちいい」「あなたならではの選曲にぐっときた！」「涙がじんわり出てきた」など、自分がどんな気持ちになるかを素直に味わい、やさしい気持ちで伝えあいましょう。</p>
+          </div>
+        </li>
+
+        <li class="hint-item">
+          <span class="hint-icon" aria-label="ヒント4">ヒント4</span>
+          <div class="hint-content">
+            <strong>予想外の動きも楽しんで！</strong>
+            <p>参加者の方たちの体調や会場の状況などによって、予定を変更する必要も出てきます。そんなときは予想外の動きを楽しみながら対応していきましょう。予定を守ることよりも、その場で参加者みんなが安心して心地よく過ごせることが大切。</p>
+          </div>
+        </li>
+
+        <li class="hint-item">
+          <span class="hint-icon" aria-label="ヒント5">ヒント5</span>
+          <div class="hint-content">
+            <strong>「やってみたい」の芽吹きを見逃さないで</strong>
+            <p>音楽会では、多様な表現や人と触れ合ううちに、じわじわと「やってみたい」気持ちが生まれることがあります。楽器やマイクを渡してみたり、演奏者の近くに行けるように付き添ったりと、無理強いせず、ちょっぴり挑戦できるような後押しをしましょう。</p>
+          </div>
+        </li>
+
+        <li class="hint-item">
+          <span class="hint-icon" aria-label="ヒント6">ヒント6</span>
+          <div class="hint-content">
+            <strong>「やりたくない」も尊重し、それぞれのテンポとリズムを大切に</strong>
+            <p>「やりたくない」を表明することも、とても勇気のいることです。音楽を聴きたくない、演奏したくない、そういう気持ちも尊重しあいましょう。演奏スペースから離れられる「カームダウン・スペース」を用意すると安心です。</p>
+          </div>
+        </li>
+
+        <li class="hint-item">
+          <span class="hint-icon" aria-label="ヒント7">ヒント7</span>
+          <div class="hint-content">
+            <strong>大人も楽しみあそぶ！</strong>
+            <p>大人が「好き」や「表現」をめいっぱい楽しんでいる姿は、「こんなに楽しんでいいんだ！」と子どもや若者にも安心感を伝えることができます。「正しさ」や「上手さ」を脇に置いて、ありのまま楽しみましょう。</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- コラム2 -->
+    <section id="column2" aria-labelledby="column2-heading">
+      <h2 id="column2-heading">コラム２：フォトボイスでの振り返り</h2>
+
+      <p>コミュニティ・ミュージックに欠かせない「振り返り」。つむおとでも様々な方法で振り返りをしています。2025年には、「フォトボイス」という研究手法を使って、参加者の方と一緒につむおとを振り返りました。</p>
+
+      <h3>フォトボイスとは？</h3>
+
+      <p>コミュニティの人が自ら写真（フォト）を撮影し、写真を介して語り（ボイス）を共有することで、コミュニティが必要としていることを見つけたり、市民のエンパワメント（自分たちの強みや長所に気づき発揮できるようになること）などを目指す方法です。</p>
+
+      <p>つむおとでは、みなさんのフォトボイスを元に研究を進め、それらの成果を「つむおとフォトボイスBOOK」としてまとめました。</p>
+
+      <h3>事例：つむおとフォトボイスワークショップの手順</h3>
+
+      <div class="photovoice-steps">
+        <div class="photovoice-step">
+          <p><strong>手順１：</strong>参加者は、「つむおとのここが好き／心地よい」と感じる場面を撮影します。</p>
+        </div>
+        <div class="photovoice-step">
+          <p><strong>手順２：</strong>後日「振り返り会」にて、写真を見ながらファシリテーターと対話をし、下記の6つの項目ごとに写真を分析します。</p>
+        </div>
+        <div class="photovoice-step">
+          <p><strong>手順３：</strong>分析と対話を踏まえて、写真にタイトルとキャプションを付けます。</p>
+        </div>
+      </div>
+
+      <h3>分析の6項目</h3>
+
+      <ul class="photovoice-items" aria-label="フォトボイス分析の6項目">
+        <li><strong>See</strong> 何が写っている？</li>
+        <li><strong>Happening</strong> そのとき起こっていたこと</li>
+        <li><strong>Emotion</strong> そのときの気持ち</li>
+        <li><strong>Factor</strong> なぜその気持ちになった？</li>
+        <li><strong>Future</strong> その経験は、そのあとあなたに何をもたらした？</li>
+        <li><strong>Care</strong> その経験は、あなたの何を守った？</li>
+      </ul>
+
+      <h3>作品・分析例</h3>
+
+      <div class="example-card" role="article" aria-label="フォトボイス作品例">
+        <div class="image-desc">
+          <strong>写真の説明（代替テキスト）</strong>
+          奥にギターを持っている演奏者。その側に子どもが3人座ったり立ったりしながら、演奏に参加している。手前では、女性がしゃがんで子どもを見守っている。もう一人の女性がスマートフォンでその様子を撮影している。
+        </div>
+
+        <p><strong>タイトル：</strong>音楽を楽しむ子供と見守るママたち</p>
+        <p><strong>キャプション：</strong>子どもたちが、自分の好きな歌を演奏者と共に奏でています。演奏者の優しいまなざしと見守るママの笑顔が素敵。心がキュンとあたたかくなります。</p>
+
+        <dl>
+          <dt>See：</dt><dd>演奏者と参加者との交流の場。子どもを見守る保護者</dd>
+          <dt>Happening：</dt><dd>自然に参加し、音楽を楽しむ子供たち。その姿をうれしそうに見ている保護者。</dd>
+          <dt>Emotion：</dt><dd>ほほえましい優しい気持ち。子どもって素直に楽しめていいな。</dd>
+          <dt>Factor：</dt><dd>演奏者と子どもが共に寄りそいながら音楽を楽しんでいた。</dd>
+          <dt>Future：</dt><dd>この場をそっと見守りたい、ずっとみていたなと思った。まるく優しい気持ち。</dd>
+          <dt>Care：</dt><dd>音楽で、緊張がほぐれ、安心できる場になる。親子で参加できる場って大切。</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- サポーター・メンバー -->
+    <section id="supporters" aria-labelledby="supporters-heading">
+      <h2 id="supporters-heading">つむおとを支えてくれた人たち</h2>
+
+      <p>みんなとつむぐ音楽会の実践および、本書の制作は、日本生活学会・アカデミスト株式会社による「知の無尽講をつくろう」クラウドファンディングプロジェクトを通していただいた、たくさんのご支援に支えられています。ご支援くださったサポーターのみなさまに改めて感謝申し上げます。</p>
+
+      <h3>ご支援くださったサポーターのみなさま（五十音順）</h3>
+
+      <ul class="supporter-list" aria-label="サポーターのみなさま">
+        <li>朝長仁志　様</li>
+        <li>阿比留久美　様</li>
+        <li>飯田　康太郎　様</li>
+        <li>石川初　様</li>
+        <li>伊藤総一郎　様</li>
+        <li>s.s　様</li>
+        <li>M.kata　様</li>
+        <li>サエキマオ　様</li>
+        <li>宍戸佳織　様</li>
+        <li>すみえ　様</li>
+        <li>武田 淳志　様</li>
+        <li>菜々河れい　様</li>
+        <li>ヒラマツ　様</li>
+        <li>藤本 啓寛　様</li>
+        <li>松岡千佳　様</li>
+        <li>まつむらゆうこ　様</li>
+        <li>MINAMI　様</li>
+        <li>宮原文隆　様</li>
+        <li>三好恵真子　様</li>
+        <li>森祐美子　様</li>
+        <li>泰松 遼　様</li>
+        <li>ヤノダイジ　様</li>
+        <li>余語琢磨　様</li>
+        <li>吉永早苗　様</li>
+        <li>Y.A.　様</li>
+      </ul>
+
+      <p>そのほか多くの方からご寄付をいただきました。ご支援くださったみなさま、ありがとうございました。今後ともみんなとつむぐ音楽会を応援していただけますとうれしいです。</p>
+
+      <h3>メンバー</h3>
+
+      <div class="member-list" role="list" aria-label="つむおとメンバー">
+        <div class="member-card" role="listitem">
+          <p class="member-name">南摩周（ましゅう）</p>
+          <p>つむおと発起人。ギターと歌を演奏する。コミュニティ・アーティスト、場と言葉のつくりてとして、大阪府茨木市を中心に活動。</p>
+        </div>
+        <div class="member-card" role="listitem">
+          <p class="member-name">角亮典（すみすみ）</p>
+          <p>つむおとスタッフ。コントラバスやベースを演奏する。神奈川県横浜市を中心に、若者支援の現場で文化活動を創る活動をしている。</p>
+        </div>
+        <div class="member-card" role="listitem">
+          <p class="member-name">村岡ゆりあ（ゆりあ）</p>
+          <p>つむおとデザイナー。思いを共にするアーティスト。音楽演奏もする。</p>
+        </div>
+        <div class="member-card" role="listitem">
+          <p class="member-name">Rさん</p>
+          <p>つむおとボランティアスタッフ。広報を担当する。</p>
+        </div>
+        <div class="member-card" role="listitem">
+          <p class="member-name">Mさん</p>
+          <p>つむおとボランティアスタッフ。若者コミュニティ・アーティストとして演奏もする。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- おわりに -->
+    <section id="owari" aria-labelledby="owari-heading">
+      <h2 id="owari-heading">おわりに</h2>
+
+      <p>放課後の音楽室で電子キーボードでイントロクイズをしてくれた先生、習い事でまったく練習して来ていない自分を叱らずにピアノの前でサーフィンの話をしてくれたこと、部活でコーチがしみじみとプロオケのオーディションの話をしてくれたこと、ジメジメとした地下の練習室でカップラーメンを啜りながら仲間と練習したこと。そんな、音楽とは直接関係ない時間たちが結局音楽を続けさせていたし、今の自分を形成している気がします。</p>
+
+      <p>わたしは、小学生の頃から習い事でピアノやドラム、中学校以降は部活で管弦楽、大学に入ってからはバンドや市民吹奏楽団と、振り返ると音楽と楽器、そして音楽を愛するプレイヤーたちに囲まれて生きてきたなぁとしみじみと感じます。こういった経験や環境は「恵まれている」と、言えるでしょう。</p>
+
+      <p>文化資本を困難を抱える子ども、若者たちに提供しよう、という取り組みは全国でみられます。しかし、「つむおと」は、子どもたちによき「体験」をしてほしい、文化資本を獲得してほしい、というものではないと思っています。音楽は贅沢品や嗜好品ではなく、言葉や文字のようにじぶんやじぶんたちを伝える手段、方法でもあります。「じぶん」を自由に表現することは、誰にとってもなくてはならない権利であるはず。</p>
+
+      <p>支援や教育という領域はどうしても「言葉」に偏ってしまいます。しかし、語りえないこと、語ってしまった瞬間に消えてしまうこと、言葉にならないことも、たくさんあるはずです。音楽は言葉以外の表現の数あるものの一つ。言葉では表せないもの、言葉の手前にあるような自己表現を、まさに湧き水のように流れ出てくるような感覚や感情を、つむおとが呼び水になって、溢れ出させられたら、と思います。</p>
+
+      <blockquote>
+        <p>「僕は音楽がもっと生活に溢れていたらいいと思うんだよね」</p>
+      </blockquote>
+
+      <p>縁のあるベーシストの先輩の言葉で、10年近く前のことなのに印象に残っています。ここまでこのレシピを読んでくださった皆さまが、音楽を心から楽しんで、誰かと一緒に音楽を奏でてくれたら、と思います。そうやって、生活の中に音楽を、ひいては自分を表出したり、表現することが、誰にとっても当たり前で気軽なものになったなら、いいなぁと心から思います。</p>
+
+      <p class="author-note">（書いた人：角亮典）</p>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <h2>yoriai.（よりあい。）について</h2>
+    <p>表現の場をつくり、届ける実践・研究グループ。コミュニティ・アート／音楽の場を地域にお届けしています。</p>
+    <p>公式ホームページ：<a href="https://yoriai-official.studio.site/" target="_blank" rel="noopener noreferrer">https://yoriai-official.studio.site/</a></p>
+    <p>みんなとつむぐ音楽会（つむおと）Instagram：<a href="https://www.instagram.com/tsumuguongaku/" target="_blank" rel="noopener noreferrer">@tsumuguongaku</a></p>
+
+    <div class="colophon" role="note" aria-label="奥付">
+      <p><strong>コミュニティ・ミュージックのレシピ　どんなわたしも音になる！</strong></p>
+      <p>発行日：2026年5月31日</p>
+      <p>発行元：yoriai.</p>
+      <p>Email：<a href="mailto:yoriai.official@gmail.com">yoriai.official@gmail.com</a></p>
+      <p>企画・執筆・編集：角亮典、南摩周、村岡ゆりあ、矢野弘登</p>
+      <p>デザイン・イラスト：村岡ゆりあ</p>
+    </div>
+
+    <a href="#top" class="back-to-top" aria-label="ページの先頭に戻る">▲ 先頭に戻る</a>
+  </footer>
+
+</body>
+</html>
